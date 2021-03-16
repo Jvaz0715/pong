@@ -36,10 +36,11 @@ function update() {
 
     // If the computer paddle goes off the edge of the screen, bring it back
     computerPaddleYPosition = computerPaddleYPosition % (GAME_AREA_HEIGHT - PADDLE_HEIGHT);
-
-    if (ballXPosition > GAME_AREA_WIDTH - 20) {
+    
+    if (ballXPosition > GAME_AREA_WIDTH - 20 || ballXPosition < 0) {
         ballXVelocity = -ballXVelocity;
-    }
+    } 
+    
 
     //ballYPosition = ballYPosition % (GAME_AREA_HEIGHT - BALL_SIZE)
     // Apply the y-position 
