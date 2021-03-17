@@ -74,28 +74,21 @@ function update() {
 }
 
 // functions to click move player paddle
-
-function upArrowPressed() {
+/*function upArrowPressed() {
     playerPaddle.style.top -= playerPaddleYVelocity;
 }
-
 function downArrowPressed() {
     playerPaddle.style.top += playerPaddleYVelocity;
 }
-
-
 function onKeyDown(event) {
     playerPaddle.style.top = 0;
-
     if (event.keyCode === 38) {
         upArrowPressed();
     } else if (event.keyCode === 40) {
         downArrowPressed();
     }
     window.addEventListener("keydown", onKeyDown);
-}
-
-
+}*/
 
 // Call the update() function every time the browser is ready to re-render
 function loop() {
