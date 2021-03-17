@@ -23,7 +23,7 @@ let ballXVelocity = 5;
 
 // Initial computer paddle y-position and y-velocity
 let computerPaddleYPosition = 0;
-let computerPaddleYVelocity = 1;
+let computerPaddleYVelocity = 5;
 
 
 // Update the pong world
@@ -37,7 +37,7 @@ function update() {
     // If the computer paddle goes off the edge of the screen, bring it back
     //computerPaddleYPosition = computerPaddleYPosition % (GAME_AREA_HEIGHT - PADDLE_HEIGHT);
 
-    if (computerPaddleYPosition > GAME_AREA_HEIGHT - PADDLE_HEIGHT) {
+    if (computerPaddleYPosition > GAME_AREA_HEIGHT - PADDLE_HEIGHT || computerPaddleYPosition < 0) {
         computerPaddleYVelocity = -computerPaddleYVelocity;
     }
 
