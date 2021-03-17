@@ -15,6 +15,9 @@ const computerPaddle = document.querySelector('.computer-paddle');
 // Get the ball element
 const ball = document.querySelector('.ball');
 
+// Get the player paddle element
+const playerPaddle = document.querySelector('.player-paddle');
+
 // initial ball y-position and y-velocity
 let ballYPosition = 0;
 let ballXPosition = 0;
@@ -24,6 +27,11 @@ let ballXVelocity = 5;
 // Initial computer paddle y-position and y-velocity
 let computerPaddleYPosition = 0;
 let computerPaddleYVelocity = 5;
+
+// Initial player-paddle y-position and y-velocity
+let playerPaddleYPosition = 0;
+let playerPaddleXPosition = 0;
+let playerPaddleYVelocity = 5;
 
 
 // Update the pong world
@@ -65,9 +73,31 @@ function update() {
     ball.style.top = `${ballYPosition}px`
 }
 
-// Call the update() function everytime the browser is ready to re-render
+// functions to click move player paddle
+
+function upArrowPressed () {
+    playerPaddle.style.top -= playerPaddleYVelocity;
+}
+
+function downArrowPressed () {
+    playerPaddle.style.top += playerPaddleYVelocity;
+}
+
+function moveOptions(evt) {
+    switch (evt.keyCode) {
+        case 38:
+            upArrowPressed();
+            break;
+        case 40:
+            downArrowPressed();
+            break;
+    }
+}
+
+// Call the update() function every time the browser is ready to re-render
 function loop() {
     update();
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
+window.addEventListener('keydown', moveOptions)
