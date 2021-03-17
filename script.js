@@ -29,7 +29,7 @@ let computerPaddleYPosition = 0;
 let computerPaddleYVelocity = 5;
 
 // Initial player-paddle y-position and y-velocity
-let playerPaddleYPosition = 0;
+let playerPaddleYPosition = 50;
 let playerPaddleXPosition = 0;
 let playerPaddleYVelocity = 5;
 
@@ -75,7 +75,7 @@ function update() {
 
 // functions to click move player paddle
 
-function upArrowPressed () {
+/*function upArrowPressed () {
     playerPaddle.style.top -= playerPaddleYVelocity;
 }
 
@@ -92,7 +92,18 @@ function moveOptions(evt) {
             downArrowPressed();
             break;
     }
+}*/
+
+
+function onKeyDown(event) {
+    if (event.keyCode == 38) {
+        playerPaddle.style.top -= 5;
+    } else if (event.keyCode == 40) {
+        playerPaddle.style.top += 5;
+    }
 }
+
+
 
 // Call the update() function every time the browser is ready to re-render
 function loop() {
@@ -100,4 +111,4 @@ function loop() {
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
-window.addEventListener('keydown', moveOptions)
+window.addEventListener("keydown", onKeyDown)
