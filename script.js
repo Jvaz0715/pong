@@ -37,17 +37,25 @@ function update() {
     // If the computer paddle goes off the edge of the screen, bring it back
     //computerPaddleYPosition = computerPaddleYPosition % (GAME_AREA_HEIGHT - PADDLE_HEIGHT);
 
+    // gets the computer paddle to move up AND down without returning to the top
     if (computerPaddleYPosition > GAME_AREA_HEIGHT - PADDLE_HEIGHT || computerPaddleYPosition < 0) {
         computerPaddleYVelocity = -computerPaddleYVelocity;
     }
 
-    if (ballXPosition > GAME_AREA_WIDTH - 21 || ballXPosition < 0) {
+    // will get the ball to bounce off left and right
+    /*if (ballXPosition > GAME_AREA_WIDTH - 21 || ballXPosition < 0) {
         ballXVelocity = -ballXVelocity;
-    } 
-
+    }*/ 
+    // will get the ball to bounce from top and bottom
     if (ballYPosition > GAME_AREA_HEIGHT - 21 || ballYPosition < 0) {
         ballYVelocity = -ballYVelocity;
     }
+    
+    // get the ball to reset to the middle of the game if it goes out of left or right
+    if (ballXPosition > GAME_AREA_WIDTH - 21 || ballXPosition < 0) {
+        ballXPosition = GAME_AREA_HEIGHT / 2;
+        balYPosition = GAME_AREA_WIDTH / 2;
+    } 
     
 
     //ballYPosition = ballYPosition % (GAME_AREA_HEIGHT - BALL_SIZE)
