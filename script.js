@@ -75,32 +75,24 @@ function update() {
 
 // functions to click move player paddle
 
-/*function upArrowPressed () {
+function upArrowPressed() {
     playerPaddle.style.top -= playerPaddleYVelocity;
 }
 
-function downArrowPressed () {
+function downArrowPressed() {
     playerPaddle.style.top += playerPaddleYVelocity;
 }
 
-function moveOptions(evt) {
-    switch (evt.keyCode) {
-        case 38:
-            upArrowPressed();
-            break;
-        case 40:
-            downArrowPressed();
-            break;
-    }
-}*/
-
 
 function onKeyDown(event) {
-    if (event.keyCode == 38) {
-        playerPaddle.style.top -= 5;
-    } else if (event.keyCode == 40) {
-        playerPaddle.style.top += 5;
+    playerPaddle.style.top = 0;
+
+    if (event.keyCode === 38) {
+        upArrowPressed();
+    } else if (event.keyCode === 40) {
+        downArrowPressed();
     }
+    window.addEventListener("keydown", onKeyDown);
 }
 
 
@@ -111,4 +103,3 @@ function loop() {
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
-window.addEventListener("keydown", onKeyDown)
